@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import UserManagePagination from '../UserManagePagination';
+import MoreActionModal from '../userManagementModals/MoreActionModal';
 
 const SuspendedUsers = () => {
+  const [showMoreAction, setShowMoreAction] = useState(false);
 
   const userData = [
     {
@@ -116,13 +118,16 @@ const SuspendedUsers = () => {
                 <span className="bg-[#e6e6e6] px-2 py-1 rounded-full text-center">{data.doc}</span>
               </td>
               <td>
-                <BsThreeDotsVertical className="text-[#98a2b3]" />
+                <BsThreeDotsVertical className="text-[#98a2b3] cursor-pointer" onClick={() => setShowMoreAction(true)}/>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
       <UserManagePagination />
+      {showMoreAction && (
+        <MoreActionModal setShowMoreAction={setShowMoreAction}/>
+      )}
     </div>
   );
 }
