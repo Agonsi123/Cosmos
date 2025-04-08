@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CiCircleRemove, CiSaveDown2 } from "react-icons/ci";
 import { PiDownloadSimpleBold } from "react-icons/pi";
-import { MdOutlineSaveAlt } from "react-icons/md";
 import Face from '../../../../assets/Face2.jpg';
+import ApproveVerification from './ApproveVerification';
+import ApproveSuccess from './ApproveSuccess';
+import RejectWarning from './RejectWarning';
+
 
 const PendingUserDetails = ({setShowPending}) => {
+
+  const[showVerify, setShowVerify] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const[showWarning, setShowWarning] = useState(false);
+
   return (
-    <div className="bg-black bg-opacity-80 backdrop-blur-sm fixed h-screen z-50 w-full flex items-center justify-center inset-0">
+    <div className="bg-black bg-opacity-80 backdrop-blur-sm fixed h-screen z-10 w-full flex items-center justify-center inset-0">
       <div className="flex flex-col gap-2 py-2 px-6 max-w-[500px] w-full rounded-xl bg-white shadow-lg relative">
         <div className="flex justify-between pt-2 pb-6 border-b border-[rgba(0,0,0,0.25)] ">
           <h3 className="font-sans text-2xl font-medium text-[#6b911b]">New User Document Check</h3>
@@ -70,12 +78,25 @@ const PendingUserDetails = ({setShowPending}) => {
               Any note or message should go here
             </p>
           </div>
-          <div className='flex gap-[18px] font-semibold text-base'>
-            <button className='py-2 px-10 rounded-[4px] bg-[#6b911b] text-white'>Verify User</button>
-            <button className='py-2 px-10 rounded-[4px] border border-[#c50000] bg-[#fbe2e2] text-[#b20000]'>Reject User Registration</button>
+          <div className="flex gap-3 font-semibold text-base">
+            <div
+              className="py-2 px-10 w-[205px] rounded-[4px] bg-[#6b911b] text-white text-center"
+              onClick={() => setShowVerify(true)}
+            >
+              <button>Verify User</button>
+            </div>
+            <div
+              className="py-2 px-6 rounded-[4px] border border-[#c50000] bg-[#fbe2e2] text-[#b20000]"
+              onClick={() => setShowWarning(true)}
+            >
+              <button>Reject User Registration</button>
+            </div>
           </div>
         </div>
       </div>
+      {showVerify && <ApproveVerification setShowVerify={setShowVerify} />}
+      {showSuccess && <ApproveSuccess setShowSuccess={setShowSuccess} />}
+      {showWarning && <RejectWarning setShowWarning={setShowWarning} />}
     </div>
   );
 }
