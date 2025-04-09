@@ -1,8 +1,14 @@
-import React from 'react';
+import React from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import goodgreen from "../../../../assets/goodgreen.svg";
 
-const ApproveSuccess = ({ setShowSuccess, setShowVerify }) => {
+const ApproveSuccess = ({
+  setShowPending,
+  setShowMoreAction,
+  setShowVerify,
+  setShowWarning,
+  setShowSuccess,
+}) => {
   return (
     <div className="bg-transparent fixed h-screen z-30 w-full flex items-center justify-center inset-0">
       <div className="bg-white w-[32.5%] mt-2 rounded-xl shadow-lg">
@@ -14,7 +20,11 @@ const ApproveSuccess = ({ setShowSuccess, setShowVerify }) => {
             <div
               className="absolute right-[-164px] -top-2"
               onClick={() => {
-                setShowSuccess(false)
+                setShowSuccess(false);
+                setShowVerify(false);
+                setShowPending(false);
+                setShowMoreAction(false);
+                setShowWarning(false);
               }}
             >
               <CiCircleRemove className="size-6" />
@@ -35,4 +45,4 @@ const ApproveSuccess = ({ setShowSuccess, setShowVerify }) => {
   );
 };
 
-export default ApproveSuccess
+export default ApproveSuccess;

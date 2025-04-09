@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { MdOutlineSaveAlt } from "react-icons/md";
 import { CiCircleRemove } from "react-icons/ci";
-import hourglassgreen from '../../../../assets/hourglassgreen.svg';
-// import ApproveSuccess from './ApproveSuccess';
+import hourglassgreen from "../../../../assets/hourglassgreen.svg";
+// import ApproveSuccess from "./ApproveSuccess";
 
-const ApproveVerification = ({ setShowVerify }) => {
-  // const [showSuccess, setShowSuccess] = useState(false);
-
+const ApproveVerification = ({
+  setShowPending,
+  setShowMoreAction,
+  setShowVerify,
+  setShowWarning,
+  setShowSuccess,
+}) => {
 
   return (
     <div className="bg-black bg-opacity-40 fixed h-screen z-20 w-full flex items-center justify-center inset-0">
@@ -17,8 +21,16 @@ const ApproveVerification = ({ setShowVerify }) => {
               <div className="border-8 border-[#f5fbe9] bg-[#ecf7d4] rounded-full">
                 <img src={hourglassgreen} alt="hourglass" />
               </div>
-              <div className="absolute right-[-164px] -top-2" 
-              onClick={() => setShowVerify(false)}>
+              <div
+                className="absolute right-[-164px] -top-2"
+                onClick={() => {
+                   setShowSuccess(false);
+              setShowVerify(false);
+              setShowPending(false);
+              setShowMoreAction(false);
+              setShowWarning(false);
+                }}
+              >
                 <CiCircleRemove className="size-6" />
               </div>
             </div>
@@ -30,17 +42,19 @@ const ApproveVerification = ({ setShowVerify }) => {
           <button
             className="bg-[#6b911b] text-white py-2 px-6 rounded-[4px]"
             onClick={() => {
-              setShowSuccess(true)
-              // setShowVerify(false);
+              setShowSuccess(true);
+              setShowVerify(false);
+              setShowPending(false);
+              setShowMoreAction(false);
+              setShowWarning(false);
             }}
           >
             Yes, Please Approve
           </button>
         </div>
       </div>
-      {/* {showSuccess && <ApproveSuccess setShowSuccess={setShowSuccess}/>} */}
     </div>
   );
 };
 
-export default ApproveVerification
+export default ApproveVerification;
