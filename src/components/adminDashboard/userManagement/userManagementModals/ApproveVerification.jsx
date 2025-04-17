@@ -11,7 +11,6 @@ const ApproveVerification = ({
   setShowWarning,
   setShowSuccess,
 }) => {
-
   return (
     <div className="bg-black bg-opacity-40 fixed h-screen z-20 w-full flex items-center justify-center inset-0">
       <div className="bg-white w-[32.5%] rounded-xl shadow-lg">
@@ -24,11 +23,11 @@ const ApproveVerification = ({
               <div
                 className="absolute right-[-164px] -top-2"
                 onClick={() => {
-                   setShowSuccess(false);
-              setShowVerify(false);
-              setShowPending(false);
-              setShowMoreAction(false);
-              setShowWarning(false);
+                  setShowSuccess(false);
+                  setShowVerify(false);
+                  setShowPending(false);
+                  setShowMoreAction(false);
+                  setShowWarning(false);
                 }}
               >
                 <CiCircleRemove className="size-6" />
