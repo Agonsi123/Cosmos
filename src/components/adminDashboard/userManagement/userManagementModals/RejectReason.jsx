@@ -4,7 +4,7 @@ import { CiCircleRemove } from "react-icons/ci";
 const RejectReason = ({setShowReason}) => {
   return (
     <div className="bg-black bg-opacity-40 fixed h-screen z-30 w-full flex items-center justify-center inset-0">
-      <div className="bg-white w-[45%] rounded-xl shadow-lg p-6 flex flex-col gap-2">
+      <div className="bg-white w-[45%] rounded-xl shadow-lg p-6 flex flex-col gap-3">
         <div className="flex justify-between pt-2 pb-6 border-b border-[rgba(0,0,0,0.25)]">
           <h3 className="font-sans text-2xl font-medium text-[#bc332a]">
             Reason For Rejecting User Registration
@@ -27,11 +27,14 @@ const RejectReason = ({setShowReason}) => {
           ></textarea>
         </div>
         <div className="flex gap-3 font-semibold text-base">
-          <div className="border border-[#bc332a] rounded py-2 pr-4 pl-3 w-[262px] text-center">
+          <div
+            className="border border-[#bc332a] rounded py-2 pr-4 pl-3 w-[262px] text-center"
+            onClick={() => setShowReason(false)}
+          >
             <button className="text-[#bc3324]">Cancel</button>
           </div>
           <div className="border bg-[#bc332a] rounded py-2 pr-4 pl-3 w-[262px] text-center">
-            <button className='text-white'>Reject Registration</button>
+            <button className="text-white">Reject Registration</button>
           </div>
         </div>
       </div>
