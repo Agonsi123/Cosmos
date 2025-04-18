@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CiCircleRemove } from "react-icons/ci";
+import RejectionSuccess from './RejectionSuccess';
 
 const RejectReason = ({setShowReason}) => {
+  const[showRejectionSuccess, setShowRejectionSuccess] = useState(false);
   return (
     <div className="bg-black bg-opacity-40 fixed h-screen z-30 w-full flex items-center justify-center inset-0">
       <div className="bg-white w-[45%] rounded-xl shadow-lg p-6 flex flex-col gap-3">
@@ -33,7 +35,10 @@ const RejectReason = ({setShowReason}) => {
           >
             <button className="text-[#bc3324]">Cancel</button>
           </div>
-          <div className="border bg-[#bc332a] rounded py-2 pr-4 pl-3 w-[262px] text-center">
+          <div 
+            className="border bg-[#bc332a] rounded py-2 pr-4 pl-3 w-[262px]   text-center" 
+            onClick={() => setShowRejectionSuccess(true)}
+          >
             <button className="text-white">Reject Registration</button>
           </div>
         </div>
