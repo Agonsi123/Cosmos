@@ -109,9 +109,9 @@ const PendingUserDetails = ({
             <div
               className="py-2 px-10 w-[205px] rounded-[4px] bg-[#6b911b] text-white text-center"
               onClick={() => {
-                setShowSuccess(true);
-                setShowVerify(false);
-                setShowPending(false);
+                setShowSuccess(false);
+                setShowVerify(true);
+                setShowPending(true);
                 setShowMoreAction(false);
                 setShowWarning(false);
               }}

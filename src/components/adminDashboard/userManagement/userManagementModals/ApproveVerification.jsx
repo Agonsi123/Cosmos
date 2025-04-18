@@ -43,7 +43,7 @@ const ApproveVerification = ({
             onClick={() => {
               setShowSuccess(true);
               setShowVerify(false);
-              setShowPending(false);
+              setShowPending(true);
               setShowMoreAction(false);
               setShowWarning(false);
             }}
