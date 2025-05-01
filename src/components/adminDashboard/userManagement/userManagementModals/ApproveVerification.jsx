@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdOutlineSaveAlt } from "react-icons/md";
 import { CiCircleRemove } from "react-icons/ci";
 import hourglassgreen from "../../../../assets/hourglassgreen.svg";
+import {AppContext} from '../../../../context/Index';
+import ApproveSuccess from '../userManagementModals/ApproveSuccess';
 // import ApproveSuccess from "./ApproveSuccess";
 
 const ApproveVerification = ({
-  setShowPending,
   setShowMoreAction,
-  setShowVerify,
   setShowWarning,
-  setShowSuccess,
+
 }) => {
+  const{ setShowVerify,  showSuccess, setShowSuccess} = useContext(AppContext);
+  const handleSuccess = () => {
+    console.log('you dey whine me');
+    // setShowSuccess(true);
+    {setShowSuccess(true) ? setShowVerify(false) : setShowSuccess(true)}
+    // setShowVerify(false);
+  };
+
   return (
-    <div className="bg-black bg-opacity-40 fixed h-screen z-20 w-full flex items-center justify-center inset-0">
+    <>
+      <div className="bg-black bg-opacity-40 fixed h-screen z-10 w-full flex items-center justify-center inset-0">
       <div className="bg-white w-[32.5%] rounded-xl shadow-lg">
         <div className="m-6 flex flex-col gap-4">
           <div className=" flex flex-col gap-5 items-center">
@@ -23,11 +32,12 @@ const ApproveVerification = ({
               <div
                 className="absolute right-[-164px] -top-2"
                 onClick={() => {
-                  setShowSuccess(false);
+                  // setShowSuccess(false);
                   setShowVerify(false);
-                  setShowPending(false);
-                  setShowMoreAction(false);
-                  setShowWarning(false);
+                  // setShowPending(false);
+                  // setShowMoreAction(false);
+                  // setShowWarning(false);
+                  console.log('This code done start again');
                 }}
               >
                 <CiCircleRemove className="size-6" />
@@ -40,19 +50,23 @@ const ApproveVerification = ({
           </div>
           <button
             className="bg-[#6b911b] text-white py-2 px-6 rounded-[4px]"
-            onClick={() => {
-              setShowSuccess(true);
-              setShowVerify(false);
-              setShowPending(false);
-              setShowMoreAction(false);
-              setShowWarning(false);
-            }}
+            onClick={handleSuccess}
+            // onClick={() => {
+            //   setShowSuccess(true);
+            //   // setShowVerify(false);
+            //   // setShowPendingUserDetails(false);
+            //   console.log("code at it again");
+            // }}
           >
             Yes, Please Approve
           </button>
         </div>
       </div>
     </div>
+    {
+      showSuccess && <ApproveSuccess/>
+    }
+    </>
   );
 };
 

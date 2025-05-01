@@ -1,14 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import goodgreen from "../../../../assets/goodgreen.svg";
+import {AppContext} from '../../../../context/Index';
 
-const ApproveSuccess = ({
-  setShowPending,
-  setShowMoreAction,
-  setShowVerify,
-  setShowWarning,
-  setShowSuccess,
-}) => {
+const ApproveSuccess = () => {
+  const{ setShowVerify, setShowSuccess} = useContext(AppContext);
   return (
     <div className="bg-transparent fixed h-screen z-30 w-full flex items-center justify-center inset-0">
       <div className="bg-white w-[32.5%] mt-2 rounded-xl shadow-lg">
@@ -22,9 +18,6 @@ const ApproveSuccess = ({
               onClick={() => {
                 setShowSuccess(false);
                 setShowVerify(false);
-                setShowPending(false);
-                setShowMoreAction(false);
-                setShowWarning(false);
               }}
             >
               <CiCircleRemove className="size-6" />
