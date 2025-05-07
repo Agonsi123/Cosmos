@@ -15,6 +15,8 @@ const PendingUserVerification = () => {
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
   // const [showPendingUserDetails, setShowPendingUserDetails] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  // useRef
   const menuRef = useRef();
   const buttonRef = useRef();
 
