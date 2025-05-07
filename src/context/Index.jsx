@@ -5,6 +5,7 @@ const Index = ({children}) => {
     // These are modal declaration states
     const [showPendingUserDetails, setShowPendingUserDetails] = useState(false);
     const [showMoreAction, setShowMoreAction] = useState(false);
+    const [showActiveUserDetails, setShowActiveUserDetails] = useState(false);
     // const [showSuccess, setShowSuccess] = useState(false);
     // const [showWarning, setShowWarning] = useState(false);
     // const [showReason, setShowReason] = useState(false);
@@ -12,7 +13,7 @@ const Index = ({children}) => {
     // console.log(showPendingUserDetails);
   return (
    
-    <AppContext.Provider value={{showPendingUserDetails, setShowPendingUserDetails, showMoreAction, setShowMoreAction}}>
+    <AppContext.Provider value={{showPendingUserDetails, setShowPendingUserDetails, showMoreAction, setShowMoreAction, showActiveUserDetails, setShowActiveUserDetails}}>
         {children}
     </AppContext.Provider>
     
