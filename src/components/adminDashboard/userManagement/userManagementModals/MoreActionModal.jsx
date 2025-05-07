@@ -4,6 +4,8 @@ import hourglassgreen from "../../../../assets/hourglassgreen.svg";
 import hourglassorange from "../../../../assets/hourglassorange.svg";
 import goodgreen from "../../../../assets/goodgreen.svg";
 import goodorange from "../../../../assets/goodorange.svg";
+import { PiDownloadSimpleBold } from "react-icons/pi";
+import Face from '../../../../assets/Face2.jpg';
 
 
 const MoreActionModal = () => {
@@ -30,7 +32,9 @@ const MoreActionModal = () => {
           >
             Suspended User
           </button>
-          <button className="bg-[#6b911b] py-1.5 px-8 rounded-md text-white">
+          <button className="bg-[#6b911b] py-1.5 px-8 rounded-md text-white"
+            onClick={() => setActiveModal("activeUserDetails")}
+          >
             <h5>View User Details</h5>
           </button>
         </div>
@@ -257,6 +261,11 @@ const MoreActionModal = () => {
           </div>
         </div>
       ) : null}
+
+      {/* Modals for View User Details */}
+      {/* Active user details modal */}
+
+      
     </>
   );
 }

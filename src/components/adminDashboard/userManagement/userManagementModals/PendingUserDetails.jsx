@@ -292,8 +292,7 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
           </div>
         </div>
       ) : null}
-      {/* {showVerify && <ApproveVerification />} */}
-      {/* {showWarning && <RejectWarning />} */}
+      
     </>
   );
 };
