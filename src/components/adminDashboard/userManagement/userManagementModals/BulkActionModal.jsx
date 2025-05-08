@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import WarningModal from './WarningModal';
 import { GiOrange, GiSandsOfTime } from "react-icons/gi";
 import { CiCircleCheck, CiCircleRemove, CiWarning } from "react-icons/ci";
 import hourglassgreen from "../../../../assets/hourglassgreen.svg";

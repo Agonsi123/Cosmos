@@ -1,28 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { AppContext } from '../../../../context/Index';
 import { CiCircleRemove } from "react-icons/ci";
 import hourglassgreen from "../../../../assets/hourglassgreen.svg";
 import hourglassorange from "../../../../assets/hourglassorange.svg";
 import goodgreen from "../../../../assets/goodgreen.svg";
 import goodorange from "../../../../assets/goodorange.svg";
-import { PiDownloadSimpleBold } from "react-icons/pi";
-import Face from '../../../../assets/Face2.jpg';
+import ActiveUserDetails from './ActiveUserDetails';
+
 
 
 const MoreActionModal = () => {
+  const {showActiveUserDetails, setShowActiveUserDetails} = useContext(AppContext);
+
   const [activeModal, setActiveModal] = useState("moreAction");
     
   return (
     <>
       <div
         className="bg-transparent fixed min-h-screen w-[100%] inset-0"
-        // onClick={() => setIsOpen(!isOpen)}
-        // onClick={() => setShowMoreAction(false)}
       >
         <div className="flex flex-col gap-2 py-7 px-4 rounded-xl bg-white shadow-lg absolute top-[35%] right-[4%]">
           <button
             className="border-b-[0.5px] border-[rgba(0,0,0,0.15)] p-1 text-left text-sm font-[600]"
             onClick={() => setActiveModal("reactivationWarning")}
-            // onClick={() => setIsOpen('reactivationWarning')}
           >
             Reactivate User
           </button>
@@ -33,7 +33,7 @@ const MoreActionModal = () => {
             Suspended User
           </button>
           <button className="bg-[#6b911b] py-1.5 px-8 rounded-md text-white"
-            onClick={() => setActiveModal("activeUserDetails")}
+            onClick={() => setShowActiveUserDetails(true)}
           >
             <h5>View User Details</h5>
           </button>
@@ -265,7 +265,7 @@ const MoreActionModal = () => {
       {/* Modals for View User Details */}
       {/* Active user details modal */}
 
-      
+      {showActiveUserDetails && (<ActiveUserDetails/>)}
     </>
   );
 }
