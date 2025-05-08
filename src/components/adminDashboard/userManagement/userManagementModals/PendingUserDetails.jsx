@@ -90,16 +90,16 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
                 Any note or message should go here
               </p>
             </div>
-            <div className="flex gap-[18px] font-semibold text-base">
+            <div className="flex gap-2.5 font-semibold text-base">
               <button
-                className="py-2 px-10 rounded-[4px] bg-[#6b911b] text-white"
+                className="py-2 px-10 rounded-[4px] w-52 bg-[#6b911b] text-white"
                 onClick={() => setActiveStep("approveVerification")}
               >
                 Verify User
               </button>
 
               <button
-                className="py-2 px-10 rounded-[4px] border border-[#c50000] bg-[#fbe2e2] text-[#b20000]"
+                className="py-2 px-[22px] rounded-[4px] border border-[#c50000] bg-[#fbe2e2] text-[#b20000]"
                 onClick={() => setActiveStep("rejectWarning")}
               >
                 Reject User Registration
@@ -180,7 +180,7 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
         </div>
       ) : null}
 
-      {/* Account delete warning modal */}
+      {/* Account rejection warning modal */}
 
       {activeStep === "rejectWarning" ? (
         <div className="bg-black bg-opacity-40 fixed h-screen z-20 w-full flex items-center justify-center inset-0">
@@ -232,7 +232,7 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
             <p className="font-semibold text-base text-[#1e1e1e]">Payment Information</p>
             <div className="flex flex-col gap-2">
               <label className="font-medium text-sm text-[rgba(30,30,30,0.75)]" htmlFor="">
-                Please add reason for suspending this account
+                Please add reason for rejecting this account
               </label>
               <textarea
                 name=""
@@ -304,8 +304,16 @@ export const HoverStat = ({title, badge}) => {
       <div
         className={
           title === "KNOWN ISSUES"
-            ? "rounded pt-4 pl-6 pr-11 pb-1 bg-[rgba(250,248,224,1)]"
-            : "border-[0.5px] border-[rgba(0,0,0,0.5)] rounded-md pt-4 pl-6 pr-11 pb-1 bg-[rgba(250,250,250,1)] w-36"
+            ? "rounded pt-4 pl-6 pr-11 pb-1 bg-[rgba(250,248,224,[154px]"
+            : title === "TOTAL FUND INVESTED"
+            ? "rounded-md pt-4 pl-6 pb-1 bg-[#f7f9f3] w-[154px]"
+            : title === "ISSUES RAISED PENDING ATTENTION"
+            ? "rounded pt-4 pl-6 pb-1 bg-[#f9f3f3] w-[218px]"
+            : title === "NUMBER OF INVESTMENTS"
+            ? "rounded pt-4 pl-6 pb-1 bg-[#edf5ff] w-[154px]"
+            : title === "ISSUES RESOLVED"
+            ? "rounded pt-4 pl-6 pb-1 bg-[#FAF8E0] w-[154px]"
+            : "border-[0.5px] rounded-md pt-4 pl-6 pr-6 pb-1 bg-[rgba(250,250,250,1)] w-[154px]"
         }
       >
         <div className="w-1/2">
@@ -314,7 +322,11 @@ export const HoverStat = ({title, badge}) => {
         <div
           className={
             badge === "Pending"
-              ? "py-0.5 pr-2 pl-1.5 bg-[rgba(249,250,224,1)] border-[0.5px] border-[rgba(229,122,0,1)] rounded-2xl text-center"
+              ? "py-0.5 pr-2 pl-1.5 bg-[rgba(249,250,224,1)] border-[0.5px] border-[rgba(229,122,0,1)] rounded-2xl text-center w-[106px]"
+              : badge === "Active"
+              ? "py-0.5 pr-2 pl-1.5 bg-[rgba(236,253,243,1)] border-[0.5px] border-[rgba(27,160,25,1)] rounded-2xl text-center w-[106px]"
+              : badge === "Verified"
+              ? "py-0.5 pr-2 pl-1.5 bg-[rgba(236,253,243,1)] border-[0.5px] border-[rgba(27,160,25,1)] rounded-2xl text-center w-[106px]"
               : ""
           }
         >
@@ -322,6 +334,16 @@ export const HoverStat = ({title, badge}) => {
             className={
               badge === "Pending"
                 ? "font-sanns font-medium text-xs text-[rgba(229,122,0,1)]"
+                : badge === "Active"
+                ? "font-sanns font-medium text-xs text-[rgba(2,122,72,1)]"
+                : badge === "Verified"
+                ? "font-sanns font-medium text-xs text-[rgba(2,122,72,1)]"
+                : badge === "13,000,000"
+                ? "text-[#6b911b] font-sanns font-semibold text-base"
+                : badge === "3"
+                ? "text-[rgba(202,0,0,0.8)] font-sanns font-semibold text-base"
+                : badge === "4"
+                ? "text-[#121a71] font-sanns font-semibold text-base"
                 : "font-sanns font-semibold text-base text-[rgba(113,63,18,1)]"
             }
           >
