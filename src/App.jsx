@@ -23,6 +23,7 @@ import Billings from "./components/settings/billing/Billings";
 import AdminSideBar from "./pages/AdminSideBar";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import UserManagement from "./pages/UserManagement";
+import AuditLog from "./pages/AuditLog";
 import AdminDashBoardMain from "./components/adminDashboard/AdminDashboards/AdminDashBoardMain";
 
 
@@ -79,6 +80,7 @@ function App() {
               <Route index element={<AdminDashBoard />} />
               <Route path="adminDashboard" element={<AdminDashBoard />} />
               <Route path="userManagement" element={<UserManagement />} />
+              <Route path="auditLog" element={<AuditLog />} />
               {/* add your own routes here */}
             </Route>
           </Routes>

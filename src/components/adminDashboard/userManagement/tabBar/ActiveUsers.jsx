@@ -8,7 +8,9 @@ import PendingUserDetails from '../userManagementModals/PendingUserDetails';
 const ActiveUsers = () => {
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
 
-  const {showMoreAction, setShowMoreAction} = useContext(AppContext);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // const {showMoreAction, setShowMoreAction} = useContext(AppContext);
   
 
     const userData = [
@@ -82,7 +84,7 @@ const ActiveUsers = () => {
 
   return (
     <>
-      <div className="py-6 overflow-x-auto ">
+      <div className="py-6 overflow-x-auto relative">
         <table className="min-w-full">
           <thead className="shadow-sm">
             <tr className="font-sans text-[#4F5144] font-medium text-[14px]">
@@ -133,7 +135,7 @@ const ActiveUsers = () => {
                 <td>
                   <BsThreeDotsVertical
                     className="text-[#98a2b3] cursor-pointer"
-                    onClick={() => setShowMoreAction(true)}
+                    onClick={() => setIsOpen((prev) => !prev)}
                   />
                 </td>
               </tr>
@@ -141,13 +143,13 @@ const ActiveUsers = () => {
           </tbody>
         </table>
         <UserManagePagination />
+        {isOpen && <MoreActionModal />}
       </div>
 
-        {/* Pending user details modal */}
-        {showPendingUserDetails && (
-          <PendingUserDetails setShowPendingUserDetails={setShowPendingUserDetails} />
-        )}
-        {showMoreAction && <MoreActionModal setShowMoreAction={setShowMoreAction} />}
+      {/* Pending user details modal */}
+      {showPendingUserDetails && (
+        <PendingUserDetails setShowPendingUserDetails={setShowPendingUserDetails} />
+      )}
     </>
   );
 };
