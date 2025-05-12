@@ -16,10 +16,8 @@ const MoreActionModal = () => {
     
   return (
     <>
-      <div
-        className="bg-transparent fixed min-h-screen w-[100%] inset-0"
-      >
-        <div className="flex flex-col gap-2 py-7 px-4 rounded-xl bg-white shadow-lg absolute top-[35%] right-[4%]">
+      
+        <div className="flex flex-col gap-2 py-7 px-4 rounded-xl bg-white shadow-lg absolute top-0 right-5">
           <button
             className="border-b-[0.5px] border-[rgba(0,0,0,0.15)] p-1 text-left text-sm font-[600]"
             onClick={() => setActiveModal("reactivationWarning")}
@@ -32,13 +30,14 @@ const MoreActionModal = () => {
           >
             Suspended User
           </button>
-          <button className="bg-[#6b911b] py-1.5 px-8 rounded-md text-white"
+          <button
+            className="bg-[#6b911b] py-1.5 px-8 rounded-md text-white"
             onClick={() => setShowActiveUserDetails(true)}
           >
             <h5>View User Details</h5>
           </button>
         </div>
-      </div>
+      
 
       {/* Modals for Reactivate User */}
       {/*User Reactivation warning modal  */}
@@ -98,7 +97,7 @@ const MoreActionModal = () => {
                 name=""
                 id=""
                 cols="30"
-                placeholder="E.g N45,000"
+                placeholder="E.g ₦45,000"
                 className="border border-[#c2c3c1] rounded-md py-2 h-[143px] bg-white"
               ></textarea>
             </div>
@@ -209,7 +208,7 @@ const MoreActionModal = () => {
                 name=""
                 id=""
                 cols="30"
-                placeholder="E.g N45,000"
+                placeholder="E.g ₦45,000"
                 className="border border-[#c2c3c1] rounded-md py-2 h-[143px] bg-white"
               ></textarea>
             </div>
@@ -265,7 +264,7 @@ const MoreActionModal = () => {
       {/* Modals for View User Details */}
       {/* Active user details modal */}
 
-      {showActiveUserDetails && (<ActiveUserDetails/>)}
+      {showActiveUserDetails && <ActiveUserDetails />}
     </>
   );
 }

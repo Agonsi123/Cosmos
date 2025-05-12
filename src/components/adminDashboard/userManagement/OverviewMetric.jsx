@@ -46,7 +46,7 @@ export default OverviewMetric;
 
 export const Metric = ({ title, figure }) => {
   return <div className="space-y-2" >
-    <h2 className="font-manrope text-xs font-medium text-[#00000080]">{title}</h2>
+    <h2 className="font-manrope text-xs font-medium text-[#00000050]">{title}</h2>
     <p className="text-[#1E1E1ECC] text-xl font-semibold">{figure}</p>
   </div>
 };

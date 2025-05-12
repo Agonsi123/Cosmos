@@ -1,5 +1,5 @@
 const Track = ({track}) => {
-    return <li className="flex font-sanns ">
+    return <div className="flex font-sanns ">
       <div className="relative">
         <img className="]" src={track.image} alt={track.image} />
         <div className="w-[2px] h-8 bg-[#00000012] absolute top-6 left-2"></div>
@@ -12,7 +12,7 @@ const Track = ({track}) => {
       <div>
         <p className="text-[13px] font-normal text-[#0000004F]">{track.time}</p>
       </div>
-    </li>
+    </div>
   }
   
   export default Track

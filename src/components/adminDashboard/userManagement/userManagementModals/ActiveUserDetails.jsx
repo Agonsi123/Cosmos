@@ -9,7 +9,7 @@ import goodorange from "../../../../assets/goodorange.svg";
 import Face from '../../../../assets/Face2.jpg';
 import face from "../../../../assets/face.jpeg";
 import { HoverStat } from './PendingUserDetails';
-import (HoverStat);
+
 
 const ActiveUserDetails = ({}) => {
     const {setShowActiveUserDetails} = useContext(AppContext);
@@ -185,7 +185,7 @@ const ActiveUserDetails = ({}) => {
                 name=""
                 id=""
                 cols="30"
-                placeholder="E.g N45,000"
+                placeholder="E.g ₦45,000"
                 className="border border-[#c2c3c1] rounded-md py-2 h-[143px] bg-white"
               ></textarea>
             </div>
@@ -297,7 +297,7 @@ const ActiveUserDetails = ({}) => {
                 name=""
                 id=""
                 cols="30"
-                placeholder="E.g N45,000"
+                placeholder="E.g ₦45,000"
                 className="border border-[#c2c3c1] rounded-md py-2 h-[143px] bg-white"
               ></textarea>
             </div>

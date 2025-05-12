@@ -8,7 +8,7 @@ import AdminSideBarFooter from "../components/adminDashboard/adminSideBar/AdminS
 const AdminSideBar = () => {
   return (
     <div className="relative h-screen">
-      <div className="grid grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-[245px_1fr]">
         <div className="border-r-2">
           <div className=" sticky top-0 h-screenn overflow-y-auto ">
             <AdminSideBarHeader />

@@ -17,19 +17,32 @@ const PendingUserVerification = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // useRef
-  const menuRef = useRef();
-  const buttonRef = useRef();
+
+  // const menuRef = useRef();
+  // const buttonRef = useRef();
+
+  const handleClick = () =>{
+    console.log("This code don colo");
+    setIsOpen((prev) => !prev);
+  }
 
   // Detect click outside dropdown
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target) && buttonRef.current && !buttonRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (menuRef.current && !menuRef.current.contains(event.target)) {
+  //       setIsOpen(false);
+  //     }
+  //     else if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+  //       setIsOpen(false);
+  //     }
+  //     // else-if(buttonRef.current && !buttonRef.current.contains(event.target)){
+  //     //   setIsOpen(true);
+  //     // }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, []);
 
   
 
@@ -104,8 +117,7 @@ const PendingUserVerification = () => {
 
   return (
     <>
-      <div
-        className="py-6 overflow-x-auto relative" >
+      <div className="py-6 overflow-x-auto relative">
         <table width={"100%"}>
           <thead className="shadow-sm">
             <tr className="font-sans text-[#4F5144] text-sm font-light flex items-center w-full">
@@ -147,26 +159,29 @@ const PendingUserVerification = () => {
                   </span>
                 </td>
                 <td className="text-[#98a2b3] cursor-pointer">
-                  <button 
+                  {/* <button 
                   ref={buttonRef} 
                   onClick={() => setIsOpen((prev) => !prev)}
+                  
                   >
                     <BsThreeDotsVertical />
-                  </button>
+                  </button> */}
+                  <BsThreeDotsVertical onClick={handleClick} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         <UserManagePagination />
-      </div>
+        {/* More Action modal 3 Dots */}
+        {isOpen && <MoreActionModal />}
 
-      {/* More Action modal 3 Dots */}
-      {isOpen && (
+        {/* {isOpen && (
         <div ref={menuRef}>
           <MoreActionModal />
         </div>
-      )}
+      )} */}
+      </div>
 
       {/* Pending user details modal */}
       {showPendingUserDetails && (

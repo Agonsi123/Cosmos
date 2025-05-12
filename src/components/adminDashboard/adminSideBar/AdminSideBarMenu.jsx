@@ -1,14 +1,18 @@
 import investment from "../../../assets/investment.png";
 import overview from "../../../assets/overview.png";
 import wallet from "../../../assets/wallet.png";
+import v5 from "../../../assets/v5.png";
+import auditIcon from "../../../assets/auditIcon.svg";
+import securityIcon from "../../../assets/securityIcon.svg";
+import userManage from "../../../assets/userManage.svg";
+import projectsIcon from "../../../assets/projectsIcon.svg";
+import { LuUsers, LuLayoutGrid } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 
 const AdminSideBarMenu = () => {
   return (
     <div className="py-6 px-4">
-      <h2 className="font-manrope text-[#00000040] text-base font-semibold">
-        Menu
-      </h2>
+      <h2 className="font-manrope text-[#00000040] text-base font-semibold">Menu</h2>
       <div className="py-6 space-y-10 px-2 font-sanns">
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
@@ -23,7 +27,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>DashBoard</span>
                 </>
@@ -33,7 +37,7 @@ const AdminSideBarMenu = () => {
         </div>
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
-          <img src={investment} alt="invest" />
+          <img src={userManage} alt="user" />
           <div className="font-sanns text-[#1E1E1E] text-base font-medium">
             <NavLink
               className={({ isActive }) =>
@@ -44,9 +48,9 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
-                  <span>userManagement</span>
+                  <span>User Management</span>
                 </>
               )}
             </NavLink>
@@ -54,7 +58,7 @@ const AdminSideBarMenu = () => {
         </div>
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
-          <img src={wallet} alt="wallet" />
+          <img src={projectsIcon} alt="projects" />
           <div className="font-sanns text-base font-medium">
             <NavLink
               className={({ isActive }) =>
@@ -65,7 +69,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Projects</span>
                 </>
@@ -76,7 +80,7 @@ const AdminSideBarMenu = () => {
 
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
-          <img src={wallet} alt="wallet" />
+          <img src={v5} alt="v5" />
           <div className="font-sanns text-base font-medium">
             <NavLink
               className={({ isActive }) =>
@@ -87,7 +91,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Reports</span>
                 </>
@@ -97,7 +101,7 @@ const AdminSideBarMenu = () => {
         </div>
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
-          <img src={wallet} alt="wallet" />
+          <img src={securityIcon} alt="security" />
           <div className="font-sanns text-base font-medium">
             <NavLink
               className={({ isActive }) =>
@@ -108,7 +112,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Security</span>
                 </>
@@ -118,20 +122,20 @@ const AdminSideBarMenu = () => {
         </div>
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
-          <img src={wallet} alt="wallet" />
+          <img src={auditIcon} alt="audit" />
           <div className="font-sanns text-base font-medium">
             <NavLink
               className={({ isActive }) =>
                 isActive ? "bg-[#0000001A] pl-1 pr-16 py-2 rounded-md" : ""
               }
-              to="audit"
+              to="auditLog"
             >
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
                   )}
-                  <span>Audit logs</span>
+                  <span>Audit Log</span>
                 </>
               )}
             </NavLink>

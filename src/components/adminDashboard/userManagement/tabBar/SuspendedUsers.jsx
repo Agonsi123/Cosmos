@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import UserManagePagination from '../UserManagePagination';
 import MoreActionModal from '../userManagementModals/MoreActionModal';
+import {AppContext} from '../../../../context/Index';
+import PendingUserDetails from '../userManagementModals/PendingUserDetails';
 
 const SuspendedUsers = () => {
-  const [showMoreAction, setShowMoreAction] = useState(false);
+  const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const userData = [
     {
@@ -74,61 +78,74 @@ const SuspendedUsers = () => {
   ];
 
   return (
-    <div className="py-6 overflow-x-auto ">
-      <table className="min-w-full">
-        <thead className="shadow-sm">
-          <tr className="font-sans text-[#4F5144] font-medium text-[14px]">
-            <th className=" py-2 w-1/6"></th>
-            <th className=" py-2 w-1/5 text-left">REG NO</th>
-            <th className=" py-2 w-1/6 text-left">USER NAME</th>
-            <th className=" py-2 w-1/6 text-left">USER EMAIL</th>
-            <th className=" py-2 w-1/6 text-left"># OF INV</th>
-            <th className=" py-2 w-1/6 text-left">DATE REGISTERED</th>
-            <th className=" py-2 w-1/7 text-center">DOCUMENT</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {userData.map((data, index) => (
-            <tr className="border-b border-gray-110" key={index}>
-              <td className="font-sanns font-normal text-sm text-[#4F5144] px-6 py-[24px]">
-                <input
-                  className=" border border-[#b0babf] bg-[#f6f8f9]"
-                  type="checkbox"
-                  name=""
-                  id=""
-                />
-              </td>
-              <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
-                {data.reg}
-              </td>
-              <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
-                {data.name}
-              </td>
-              <td className="font-sanns font-normal text-[14px] text-[#4F5144] py-[24px]">
-                {data.email}
-              </td>
-              <td className="font-sanns font-normal text-sm text-[#4F5144] px-6 py-[24px]">
-                {data.inv}
-              </td>
-              <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
-                {data.date}
-              </td>
-              <td className="font-sanns font-bold text-sm text-gray-600 py-[24px]">
-                <span className="bg-[#e6e6e6] px-2 py-1 rounded-full text-center">{data.doc}</span>
-              </td>
-              <td>
-                <BsThreeDotsVertical className="text-[#98a2b3] cursor-pointer" onClick={() => setShowMoreAction(true)}/>
-              </td>
+    <>
+      <div className="py-6 overflow-x-auto relative">
+        <table className="min-w-full">
+          <thead className="shadow-sm">
+            <tr className="font-sans text-[#4F5144] font-medium text-[14px]">
+              <th className=" py-2 w-1/6"></th>
+              <th className=" py-2 w-1/5 text-left">REG NO</th>
+              <th className=" py-2 w-1/6 text-left">USER NAME</th>
+              <th className=" py-2 w-1/6 text-left">USER EMAIL</th>
+              <th className=" py-2 w-1/6 text-left"># OF INV</th>
+              <th className=" py-2 w-1/6 text-left">DATE REGISTERED</th>
+              <th className=" py-2 w-1/7 text-center">DOCUMENT</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <UserManagePagination />
-      {showMoreAction && (
-        <MoreActionModal setShowMoreAction={setShowMoreAction}/>
+          </thead>
+
+          <tbody>
+            {userData.map((data, index) => (
+              <tr className="border-b border-gray-110" key={index}>
+                <td className="font-sanns font-normal text-sm text-[#4F5144] px-6 py-[24px]">
+                  <input
+                    className=" border border-[#b0babf] bg-[#f6f8f9]"
+                    type="checkbox"
+                    name=""
+                    id=""
+                  />
+                </td>
+                <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
+                  {data.reg}
+                </td>
+                <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
+                  {data.name}
+                </td>
+                <td className="font-sanns font-normal text-[14px] text-[#4F5144] py-[24px]">
+                  {data.email}
+                </td>
+                <td className="font-sanns font-normal text-sm text-[#4F5144] px-6 py-[24px]">
+                  {data.inv}
+                </td>
+                <td className="font-sanns font-normal text-sm text-[#4F5144] py-[24px]">
+                  {data.date}
+                </td>
+                <td className="font-sanns font-bold text-sm text-gray-600 py-[24px]">
+                  <span
+                    className="bg-[#e6e6e6] px-2 py-1 rounded-full text-center cursor-pointer"
+                    onClick={() => setShowPendingUserDetails(true)}
+                  >
+                    {data.doc}
+                  </span>
+                </td>
+                <td>
+                  <BsThreeDotsVertical
+                    className="text-[#98a2b3] cursor-pointer"
+                    onClick={() => setIsOpen((prev) => !prev)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <UserManagePagination />
+        {isOpen && <MoreActionModal />}
+      </div>
+
+      {/* Pending user details modal */}
+      {showPendingUserDetails && (
+        <PendingUserDetails setShowPendingUserDetails={setShowPendingUserDetails} />
       )}
-    </div>
+    </>
   );
 }
 
