@@ -299,7 +299,7 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
 
 export default PendingUserDetails;
 
-export const HoverStat = ({title, badge}) => {
+export const HoverStat = ({title, badge, sp}) => {
     return (
       <div
         className={
@@ -313,6 +313,10 @@ export const HoverStat = ({title, badge}) => {
             ? "rounded pt-4 pl-6 pb-1 bg-[#edf5ff] w-[154px]"
             : title === "ISSUES RESOLVED"
             ? "rounded pt-4 pl-6 pb-1 bg-[#FAF8E0] w-[154px]"
+            : title === "PERFORMER ROLE"
+            ? "rounded pt-4 pl-4 pb-1 bg-[#F7F9F3] w-[154px]"
+            : title === "DATE OF ACTION" || "TIME OF ACTION"
+            ? "rounded pt-4 pl-4 pb-1 bg-[#F5F5F5] w-[154px]"
             : "border-[0.5px] rounded-md pt-4 pl-6 pr-6 pb-1 bg-[rgba(250,250,250,1)] w-[154px]"
         }
       >
@@ -344,10 +348,15 @@ export const HoverStat = ({title, badge}) => {
                 ? "text-[rgba(202,0,0,0.8)] font-sanns font-semibold text-base"
                 : badge === "4"
                 ? "text-[#121a71] font-sanns font-semibold text-base"
+                : badge === "Verified Admin"
+                ? "text-[#6b911b] font-sanns font-semibold text-base"
+                : badge === "12/2/2025" || "4:06PM (WAT)"
+                ? "text-[#474747] font-sanns font-semibold text-base"
                 : "font-sanns font-semibold text-base text-[rgba(113,63,18,1)]"
             }
           >
             {badge}
+            <span className='font-semibold text-[10px] text-[#474747] pl-1'>{sp}</span>
           </p>
         </div>
       </div>
