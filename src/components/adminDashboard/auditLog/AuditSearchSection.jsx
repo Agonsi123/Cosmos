@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import AdvancedSearchModal from './AdvancedSearchModal';
+// import AdvancedSearchModal from './AdvancedSearchModal';
 
 const AuditSearchSection = ({tittle, icon, icon2}) => {
 
-  const[isOpen, setIsOpen] = useState(false);
+  // const[isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="py-3 px-7 flex justify-between  items-center w-full bg-[#f8f8f8]">
@@ -21,13 +21,13 @@ const AuditSearchSection = ({tittle, icon, icon2}) => {
             />
           </div>
           <div className=""
-          onClick={setIsOpen((prev) => !prev)}
+          // onClick={setIsOpen((prev) => !prev)}
           >
             {icon2}
           </div>
         </div>
       </div>
-      {isOpen && <AdvancedSearchModal/>}
+      {/* {isOpen && <AdvancedSearchModal/>} */}
     </div>
   );
 }
