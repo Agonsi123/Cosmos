@@ -6,14 +6,11 @@ const Index = ({children}) => {
     const [showPendingUserDetails, setShowPendingUserDetails] = useState(false);
     const [showMoreAction, setShowMoreAction] = useState(false);
     const [showActiveUserDetails, setShowActiveUserDetails] = useState(false);
-    // const [showSuccess, setShowSuccess] = useState(false);
-    // const [showWarning, setShowWarning] = useState(false);
-    // const [showReason, setShowReason] = useState(false);
-    // const [showRejectionSuccess, setShowRejectionSuccess] = useState(false);
-    // console.log(showPendingUserDetails);
+    const [showAuditIssueDetails, setShowAuditIssueDetails] = useState(false);
+    
   return (
    
-    <AppContext.Provider value={{showPendingUserDetails, setShowPendingUserDetails, showMoreAction, setShowMoreAction, showActiveUserDetails, setShowActiveUserDetails}}>
+    <AppContext.Provider value={{showPendingUserDetails, setShowPendingUserDetails, showMoreAction, setShowMoreAction, showActiveUserDetails, setShowActiveUserDetails, showAuditIssueDetails, setShowAuditIssueDetails}}>
         {children}
     </AppContext.Provider>
     
