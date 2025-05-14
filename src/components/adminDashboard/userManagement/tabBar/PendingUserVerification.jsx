@@ -13,21 +13,26 @@ const PendingUserVerification = () => {
   // Initial state of modals
 
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
-  // const [showPendingUserDetails, setShowPendingUserDetails] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  
+  const [openRowIndex, setOpenRowIndex] = useState(null);
 
   // useRef
 
   // const menuRef = useRef();
   // const buttonRef = useRef();
 
-  const handleClick = () =>{
+  // const handleClick = () =>{
+  //   console.log("This code don colo");
+  //   setIsOpen((prev) => !prev);
+  // }
+
+  const handleClick = (index) => {
     console.log("This code don colo");
-    setIsOpen((prev) => !prev);
-  }
+    setOpenRowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
 
   // Detect click outside dropdown
-  
   // useEffect(() => {
   //   const handleClickOutside = (event) => {
   //     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -45,9 +50,6 @@ const PendingUserVerification = () => {
   // }, []);
 
   
-
-
-
     const userData = [
       {
         reg: 67890,
@@ -117,7 +119,7 @@ const PendingUserVerification = () => {
 
   return (
     <>
-      <div className="py-6 overflow-x-auto relative">
+      <div className="py-6 overflow-x-auto">
         <table width={"100%"}>
           <thead className="shadow-sm">
             <tr className="font-sans text-[#4F5144] text-sm font-light flex items-center w-full">
@@ -159,6 +161,12 @@ const PendingUserVerification = () => {
                   </span>
                 </td>
                 <td className="text-[#98a2b3] cursor-pointer">
+                  <div
+                    onClick={() => handleClick(index)}
+                    className="p-2 hover:bg-gray-100 rounded-full inline-block"
+                  >
+                    <BsThreeDotsVertical className="" />
+                  </div>
                   {/* <button 
                   ref={buttonRef} 
                   onClick={() => setIsOpen((prev) => !prev)}
@@ -166,21 +174,19 @@ const PendingUserVerification = () => {
                   >
                     <BsThreeDotsVertical />
                   </button> */}
-                  <BsThreeDotsVertical onClick={handleClick} />
                 </td>
+                {/* More Action modal 3 Dots */}
+                
+                {openRowIndex === index && (
+                  <div className="absolute right-14 mt-2 ">
+                    <MoreActionModal />
+                  </div>
+                )}
               </tr>
             ))}
           </tbody>
         </table>
         <UserManagePagination />
-        {/* More Action modal 3 Dots */}
-        {isOpen && <MoreActionModal />}
-
-        {/* {isOpen && (
-        <div ref={menuRef}>
-          <MoreActionModal />
-        </div>
-      )} */}
       </div>
 
       {/* Pending user details modal */}

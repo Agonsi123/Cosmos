@@ -17,7 +17,7 @@ const MoreActionModal = () => {
   return (
     <>
       
-        <div className="flex flex-col gap-2 py-7 px-4 rounded-xl bg-white shadow-lg absolute top-0 right-5">
+        <div className="flex flex-col gap-2 py-7 px-4 rounded-xl bg-white shadow-lg top-0 right-5">
           <button
             className="border-b-[0.5px] border-[rgba(0,0,0,0.15)] p-1 text-left text-sm font-[600]"
             onClick={() => setActiveModal("reactivationWarning")}

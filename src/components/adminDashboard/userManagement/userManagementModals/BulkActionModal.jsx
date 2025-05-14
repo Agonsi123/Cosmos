@@ -15,7 +15,7 @@ const BulkActionModal = ({setShowBulkModal}) => {
 
   return (
     <>
-        <div className="flex flex-col gap-2 py-8 px-4 rounded-xl bg-white shadow-lg absolute top-[58%] right-[4.5%]">
+        <div className="flex flex-col gap-2 py-8 px-4 rounded-xl bg-white shadow-lg">
           <button
             className="border-b-[0.5px] border-[rgba(0,0,0,0.08)] p-2 text-left text-sm font-[600] text-[#424242]"
             onClick={() => setActive("reactivateAccounts")}

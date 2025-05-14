@@ -8,7 +8,14 @@ import PendingUserDetails from '../userManagementModals/PendingUserDetails';
 const SuspendedUsers = () => {
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [openRowIndex, setOpenRowIndex] = useState(null);
+
+  // const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (index) => {
+    console.log("This code don colo");
+    setOpenRowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
 
   const userData = [
     {
@@ -79,7 +86,7 @@ const SuspendedUsers = () => {
 
   return (
     <>
-      <div className="py-6 overflow-x-auto relative">
+      <div className="py-6 overflow-x-auto">
         <table className="min-w-full">
           <thead className="shadow-sm">
             <tr className="font-sans text-[#4F5144] font-medium text-[14px]">
@@ -127,18 +134,28 @@ const SuspendedUsers = () => {
                     {data.doc}
                   </span>
                 </td>
-                <td>
-                  <BsThreeDotsVertical
-                    className="text-[#98a2b3] cursor-pointer"
-                    onClick={() => setIsOpen((prev) => !prev)}
-                  />
+                <td className="text-[#98a2b3] cursor-pointer">
+                  <div
+                    // onClick={() => setIsOpen((prev) => !prev)}
+                    onClick={() => handleClick(index)}
+                    className="p-2 hover:bg-gray-100 rounded-full inline-block"
+                  >
+                    <BsThreeDotsVertical />
+                  </div>
                 </td>
+
+                {/* more action modal */}
+                {openRowIndex === index && (
+                  <div className="absolute right-14 mt-2 ">
+                    <MoreActionModal />
+                  </div>
+                )}
               </tr>
             ))}
           </tbody>
         </table>
         <UserManagePagination />
-        {isOpen && <MoreActionModal />}
+        {/* {isOpen && <MoreActionModal />} */}
       </div>
 
       {/* Pending user details modal */}

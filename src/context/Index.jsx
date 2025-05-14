@@ -7,14 +7,26 @@ const Index = ({children}) => {
     const [showMoreAction, setShowMoreAction] = useState(false);
     const [showActiveUserDetails, setShowActiveUserDetails] = useState(false);
     const [showAuditIssueDetails, setShowAuditIssueDetails] = useState(false);
+    // const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
     
   return (
-   
-    <AppContext.Provider value={{showPendingUserDetails, setShowPendingUserDetails, showMoreAction, setShowMoreAction, showActiveUserDetails, setShowActiveUserDetails, showAuditIssueDetails, setShowAuditIssueDetails}}>
-        {children}
+    <AppContext.Provider
+      value={{
+        showPendingUserDetails,
+        setShowPendingUserDetails,
+        showMoreAction,
+        setShowMoreAction,
+        showActiveUserDetails,
+        setShowActiveUserDetails,
+        showAuditIssueDetails,
+        setShowAuditIssueDetails,
+        // showAdvanceSearch,
+        // setShowAdvanceSearch,
+      }}
+    >
+      {children}
     </AppContext.Provider>
-    
-  )
+  );
 }
 
 export default Index
