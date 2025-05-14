@@ -7,7 +7,7 @@ const Index = ({children}) => {
     const [showMoreAction, setShowMoreAction] = useState(false);
     const [showActiveUserDetails, setShowActiveUserDetails] = useState(false);
     const [showAuditIssueDetails, setShowAuditIssueDetails] = useState(false);
-    const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
+    // const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
     
   return (
     <AppContext.Provider
@@ -20,8 +20,8 @@ const Index = ({children}) => {
         setShowActiveUserDetails,
         showAuditIssueDetails,
         setShowAuditIssueDetails,
-        showAdvanceSearch,
-        setShowAdvanceSearch,
+        // showAdvanceSearch,
+        // setShowAdvanceSearch,
       }}
     >
       {children}

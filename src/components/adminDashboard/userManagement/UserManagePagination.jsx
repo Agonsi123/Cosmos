@@ -41,16 +41,19 @@ const UserManagePagination = () => {
           <div className="">
             <GrLinkUp className="size-3.5" />
           </div>
-          <button className="text-[14px] font-[500] text-[#344054]" 
+          <button
+            className="text-[14px] font-[500] text-[#344054]"
             onClick={() => setShowBulkModal((prev) => !prev)}
           >
             Bulk Action
           </button>
         </div>
       </div>
-      {showBulkModal && (
-        <BulkActionModal setShowBulkModal={setShowBulkModal}/>
-      )}
+        {showBulkModal && (
+          <div className="absolute right-14 -mt-48 ">
+            <BulkActionModal setShowBulkModal={setShowBulkModal} />
+          </div>
+        )}
     </div>
   );
 }
