@@ -4,6 +4,7 @@ import userAdmin from '../../../assets/userAdmin.svg';
 import navigationArrow from '../../../assets/navigationArrow.svg';
 import calendarIcon from '../../../assets/calendarIcon.svg';
 import arrowDown from '../../../assets/arrowDown.svg';
+import sortIcon from "../../../assets/sortIcon.svg";
 
 const AdvancedSearchModal = () => {
   return (
@@ -15,7 +16,6 @@ const AdvancedSearchModal = () => {
 
       {/* Section 2 Admin name/Action Type/Search by date */}
       <div className="flex gap-4 border-t border-[#00000020]">
-
         {/* Column 1 Admin name */}
         <div className="flex flex-col py-2 gap-2">
           <div className="flex gap-2">
@@ -72,8 +72,7 @@ const AdvancedSearchModal = () => {
       </div>
 
       {/* Section 3 Date of Action/ sort by */}
-      <div className='flex gap-32'>
-
+      <div className="flex gap-32">
         {/* Date of action column */}
         <div className="flex flex-col gap-2">
           <div className="flex gap-2">
@@ -103,20 +102,18 @@ const AdvancedSearchModal = () => {
         {/* Sort by column */}
         <div className="flex flex-col gap-2">
           <div className="flex gap-2">
-            <img src={calendarIcon} alt="Calender Icon" />
+            <img src={sortIcon} alt="Calender Icon" />
             <p className="font-semibold text-xs text-[#475466]">Sort by</p>
           </div>
           <div className="flex gap-3">
             <div className="flex gap-2">
-              <input type="radio" name="" id="" />
+              <input type="checkbox" name="" id="" />
               <p className="font-normal text-xs text-[#757f8d]">New to Old</p>
             </div>
             <div className="flex gap-2">
-              <input type="radio" name="" id="" />
+              <input type="checkbox" name="" id="" />
               <p className="font-normal text-xs text-[#757f8d]">Old to New</p>
             </div>
-            
-            
           </div>
         </div>
       </div>
