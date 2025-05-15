@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useRef, useEffect} from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import UserManagePagination from '../UserManagePagination';
 import MoreActionModal from '../userManagementModals/MoreActionModal';
@@ -9,11 +9,60 @@ const ActiveUsers = () => {
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
 
   const [openRowIndex, setOpenRowIndex] = useState(null);
-
-  const handleClick = (index) => {
-    console.log("This code don colo");
-    setOpenRowIndex((prevIndex) => (prevIndex === index ? null : index));
-  };
+    const [lastClickedIndex, setLastClickedIndex] = useState(null);
+  
+    // useRef
+    const menuRefs = useRef([]);
+  
+    const setMenuRef = (element, index) => {
+      menuRefs.current[index] = element;
+    };
+  
+  //Function to handle click
+    const handleClick = (index) => {
+      if (openRowIndex === index) {
+        //Click on same index (toggle off)
+        setOpenRowIndex(null);
+        setLastClickedIndex(null);
+      }else if (lastClickedIndex !== index) {
+        //switch to new index, update lastClicked, don't open immediately
+        setOpenRowIndex(null); //close the currently open modal
+        setLastClickedIndex(index);
+      } else {
+        //On second click open new index(modal)
+        setOpenRowIndex(index);
+        setLastClickedIndex(index);
+      }
+    };
+    
+    // Detect click outside dropdown
+    useEffect(() => {
+      const handleOutsideClick = (event) => {
+        const clickedInsideAny = menuRefs.current.some(
+          (ref) => ref && ref.contains(event.target)
+        );
+  
+        const clickedOnButton = event.target.closest('.three-dots-button');
+  
+        if (!clickedInsideAny && !clickedOnButton) {
+          setOpenRowIndex(null);
+          setLastClickedIndex(null);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleOutsideClick);
+      return () => {
+        document.removeEventListener("mousedown", handleOutsideClick);
+      };
+    }, []);
+  
+    //Reset both states on unmount
+    useEffect(() => {
+      return () => {
+        setOpenRowIndex(null);
+        setLastClickedIndex(null);
+      };
+    }, []);
 
     const userData = [
       {
@@ -137,7 +186,7 @@ const ActiveUsers = () => {
                 <td className="text-[#98a2b3] cursor-pointer">
                   <div
                     onClick={() => handleClick(index)}
-                    className="p-2 hover:bg-gray-100 rounded-full inline-block"
+                    className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block"
                   >
                     <BsThreeDotsVertical />
                   </div>
@@ -145,7 +194,7 @@ const ActiveUsers = () => {
 
                 {/* more action modal */}
                 {openRowIndex === index && (
-                  <div className="absolute right-14 mt-2 ">
+                  <div ref={(el) => setMenuRef(el, index)} className="absolute right-14 mt-2 ">
                     <MoreActionModal />
                   </div>
                 )}

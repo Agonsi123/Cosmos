@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { GrLinkNext, GrLinkUp, GrLinkPrevious } from "react-icons/gr";
 import { BsThreeDots } from "react-icons/bs";
 import BulkActionModal from './userManagementModals/BulkActionModal';
@@ -7,6 +7,30 @@ import BulkActionModal from './userManagementModals/BulkActionModal';
 const UserManagePagination = () => {
 
   const [showBulkModal, setShowBulkModal] = useState(false);
+
+  //Add ref to modal and button 
+  const bulkModalRef = useRef(null);
+  const buttonWrapperRef = useRef(null);
+
+  //Detect outside click
+   useEffect(() => {
+     const handleOutsideClick = (event) => {
+      const clickedOutsideModal = bulkModalRef.current && !bulkModalRef.current.contains(event.target);
+      const clickedOutsideButton =
+        buttonWrapperRef.current && !buttonWrapperRef.current.contains(event.target);
+
+       if (showBulkModal && clickedOutsideModal && clickedOutsideButton) {
+         // Close the open modal
+         setShowBulkModal(false); 
+       }
+     };
+
+     document.addEventListener("mousedown", handleOutsideClick);
+     return () => {
+       document.removeEventListener("mousedown", handleOutsideClick);
+     };
+   }, [showBulkModal]);
+
 
 
   return (
@@ -36,24 +60,25 @@ const UserManagePagination = () => {
           <button className="text-[14px] font-[500] text-[#344054]">Next</button>
         </div>
       </div>
-      <div className="bg-[#f8f8f8] px-4 py-2">
-        <div className="flex gap-2 items-center px-3 rounded-md py-1 border-[1px] border-[#D0D5DD] bg-[#ffffff] shadow-[0_1px_2px_0_rgba(16,24,40,0.05)]">
-          <div className="">
+      <div className="bg-[#f8f8f8] px-4 py-2" ref={buttonWrapperRef}>
+        <div
+          className="flex gap-2 items-center px-3 rounded-md py-1 border-[1px] border-[#D0D5DD] bg-[#ffffff] shadow-[0_1px_2px_0_rgba(16,24,40,0.05)]"
+          onClick={() => setShowBulkModal(prev => !prev)}
+        >
+          <div className="cursor-pointer">
             <GrLinkUp className="size-3.5" />
           </div>
-          <button
-            className="text-[14px] font-[500] text-[#344054]"
-            onClick={() => setShowBulkModal((prev) => !prev)}
-          >
-            Bulk Action
-          </button>
+          <button className="text-[14px] font-[500] text-[#344054]">Bulk Action</button>
         </div>
       </div>
-        {showBulkModal && (
-          <div className="absolute right-14 -mt-48 ">
-            <BulkActionModal setShowBulkModal={setShowBulkModal} />
-          </div>
-        )}
+      
+      {showBulkModal && (
+        <div 
+        ref={bulkModalRef} 
+        className="absolute right-14 -mt-48 ">
+          <BulkActionModal setShowBulkModal={setShowBulkModal} />
+        </div>
+      )}
     </div>
   );
 }
