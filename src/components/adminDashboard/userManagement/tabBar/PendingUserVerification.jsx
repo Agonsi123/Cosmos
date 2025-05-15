@@ -15,41 +15,61 @@ const PendingUserVerification = () => {
   const {showPendingUserDetails, setShowPendingUserDetails} = useContext(AppContext);
   
   const [openRowIndex, setOpenRowIndex] = useState(null);
+  const [lastClickedIndex, setLastClickedIndex] = useState(null);
 
   // useRef
+  const menuRefs = useRef([]);
 
-  // const menuRef = useRef();
-  // const buttonRef = useRef();
-
-  // const handleClick = () =>{
-  //   console.log("This code don colo");
-  //   setIsOpen((prev) => !prev);
-  // }
-
-  const handleClick = (index) => {
-    console.log("This code don colo");
-    setOpenRowIndex((prevIndex) => (prevIndex === index ? null : index));
+  const setMenuRef = (element, index) => {
+    menuRefs.current[index] = element;
   };
 
-
-  // Detect click outside dropdown
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (menuRef.current && !menuRef.current.contains(event.target)) {
-  //       setIsOpen(false);
-  //     }
-  //     else if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-  //       setIsOpen(false);
-  //     }
-  //     // else-if(buttonRef.current && !buttonRef.current.contains(event.target)){
-  //     //   setIsOpen(true);
-  //     // }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => document.removeEventListener("mousedown", handleClickOutside);
-  // }, []);
-
+//Function to handle click
+  const handleClick = (index) => {
+    if (openRowIndex === index) {
+      //Click on same index (toggle off)
+      setOpenRowIndex(null);
+      setLastClickedIndex(null);
+    }else if (lastClickedIndex !== index) {
+      //switch to new index, update lastClicked, don't open immediately
+      setOpenRowIndex(null); //close the currently open modal
+      setLastClickedIndex(index);
+    } else {
+      //On second click open new index(modal)
+      setOpenRowIndex(index);
+      setLastClickedIndex(index);
+    }
+  };
   
+  // Detect click outside dropdown
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const clickedInsideAny = menuRefs.current.some(
+        (ref) => ref && ref.contains(event.target)
+      );
+
+      const clickedOnButton = event.target.closest('.three-dots-button');
+
+      if (!clickedInsideAny && !clickedOnButton) {
+        setOpenRowIndex(null);
+        setLastClickedIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  //Reset both states on unmount
+  useEffect(() => {
+    return () => {
+      setOpenRowIndex(null);
+      setLastClickedIndex(null);
+    };
+  }, []);
+
     const userData = [
       {
         reg: 67890,
@@ -163,22 +183,15 @@ const PendingUserVerification = () => {
                 <td className="text-[#98a2b3] cursor-pointer">
                   <div
                     onClick={() => handleClick(index)}
-                    className="p-2 hover:bg-gray-100 rounded-full inline-block"
+                    className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block"
                   >
                     <BsThreeDotsVertical className="" />
                   </div>
-                  {/* <button 
-                  ref={buttonRef} 
-                  onClick={() => setIsOpen((prev) => !prev)}
-                  
-                  >
-                    <BsThreeDotsVertical />
-                  </button> */}
                 </td>
                 {/* More Action modal 3 Dots */}
                 
                 {openRowIndex === index && (
-                  <div className="absolute right-14 mt-2 ">
+                  <div ref={(el) => setMenuRef(el, index)} className="absolute right-14 mt-2 ">
                     <MoreActionModal />
                   </div>
                 )}
