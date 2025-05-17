@@ -2,12 +2,12 @@ import React from 'react'
 
 const SearchSection = ({tittle, icon, icon2, icon3, text}) => {
   return (
-    <div className="py-3 px-7 flex justify-between  items-center w-full bg-[#f8f8f8]">
+    <div className="py-3 px-1 flex justify-between  items-center w-full bg-[#f8f8f8]">
       <h1 className="w-full font-sanns font-medium text-xl">{tittle}</h1>
-      <div className="flex gap-3">
-        <div className="flex justify-between items-center border-[1px] py-1 px-4 border-[#00000026] w-[27rem] rounded">
-          <div className="flex gap-2 items-center">
-            <div className='size-7'> {icon}</div>
+      <div className="flex gap-2">
+        <div className="flex justify-between items-center border-[1px] py-1 px-3 border-[#00000026] w-[27rem] rounded">
+          <div className="flex gap-5">
+            <div className='size-3 mb-4'>{icon}</div>
             <input
               type="search"
               name=""

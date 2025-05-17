@@ -238,7 +238,7 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
                 name=""
                 id=""
                 cols="30"
-                placeholder="E.g N45,000"
+                placeholder="E.g ₦45,000"
                 className="border border-[#c2c3c1] rounded-md py-2 h-[143px] bg-white"
               ></textarea>
             </div>
@@ -292,7 +292,6 @@ const PendingUserDetails = ({ setShowMoreAction, setShowPendingUserDetails}) => 
           </div>
         </div>
       ) : null}
-      
     </>
   );
 };
