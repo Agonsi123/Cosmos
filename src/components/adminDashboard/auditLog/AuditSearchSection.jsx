@@ -30,7 +30,6 @@ const AuditSearchSection = ({tittle, icon, icon2}) => {
             <div
               className="cursor-pointer"
               onClick={() => setShowAdvanceSearch((prev) => !prev)}
-              // onClick={() => setShowAdvanceSearch(true)}
             >
               {icon2}
             </div>

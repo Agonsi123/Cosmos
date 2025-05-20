@@ -77,7 +77,30 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+        {/* Investmentb tab */}
+        <div className="flex items-center relative  gap-2">
+          <div className={`absolute left-[5px] h-8 $  `}></div>
+          <img src={investment} alt="projects" />
+          <div className="font-sanns text-base font-medium">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "bg-[#0000001A] pl-1 pr-16 py-2 rounded-md" : ""
+              }
+              to="adminInvestments"
+            >
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                  )}
+                  <span>Investments</span>
+                </>
+              )}
+            </NavLink>
+          </div>
+        </div>
 
+        {/* Report tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={v5} alt="v5" />

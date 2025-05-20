@@ -12,8 +12,6 @@ import SuspendedUsers from "./tabBar/SuspendedUsers";
 const TabBarContainer = () => {
   const [activeTab, setActiveTab] = useState("pending");
 
-  
-
   return (
     <div className="px-4 mx-2 mt-4">
       <div className="flex">
