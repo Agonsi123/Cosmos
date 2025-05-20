@@ -8,6 +8,7 @@ import FinancialTransaction from './FinancialTransaction';
 
 const InvestmentTabBar = () => {
     const [activeTab, setActiveTab] = useState("breakdown");
+    const [statusFilter, setStatusFilter] = useState(null);
 
   return (
     <div className="px-4 mx-2 mt-4">
@@ -40,15 +41,16 @@ const InvestmentTabBar = () => {
         icon2={<img src={mix} alt="mix" />}
         icon3={<TbFileExport />}
         text="Export"
+        setStatusFilter={setStatusFilter}
       />
       <div>
         {activeTab === "breakdown" ? (
-          <InvestmentBreakdown />
+          <InvestmentBreakdown statusFilter={statusFilter}/>
         ) : (
           <FinancialTransaction />
         )}
       </div>
-      {/* {showBulkModal && <BulkActionModal setShowBulkModal={setShowBulkModal} />} */}
+    
     </div>
   );
 }

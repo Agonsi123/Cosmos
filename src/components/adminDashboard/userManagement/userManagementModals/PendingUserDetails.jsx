@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 // import {AppContext} from '../../../../context/Index';
-import { CiCircleRemove, CiSaveDown2 } from "react-icons/ci";
+import { CiCircleRemove } from "react-icons/ci";
 import { PiDownloadSimpleBold } from "react-icons/pi";
 import Face from '../../../../assets/Face2.jpg';
 import hourglassgreen from "../../../../assets/hourglassgreen.svg";
