@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import FilterModal from '../adminInvestments/FilterModal';
 
-const SearchSection = ({tittle, icon, icon2, icon3, text, setStatusFilter}) => {
+const SearchSection = ({tittle, icon, icon2, icon3, text, FilterModalComponent}) => {
 
   const [showFilterModal, setShowFilterModal] = useState(false);
   
@@ -34,7 +34,7 @@ const SearchSection = ({tittle, icon, icon2, icon3, text, setStatusFilter}) => {
 
 
   return (
-    <div className="py-3 px-1 flex justify-between  items-center w-full bg-[#f8f8f8]">
+    <div className="py-3 px-1 flex justify-between  items-center w-full bg-[#f8f8f8] relative">
       <h1 className="w-full font-sanns font-medium text-xl">{tittle}</h1>
       <div className="flex gap-2">
         <div
@@ -59,10 +59,11 @@ const SearchSection = ({tittle, icon, icon2, icon3, text, setStatusFilter}) => {
         {/* Filter Modal for Investment page */}
         {showFilterModal && (
           <div ref={filterModalRef} className="absolute right-14 -mt-48 ">
-            <FilterModal 
-            setShowFilterModal={setShowFilterModal}
-            setStatusFilter={setStatusFilter} 
-            />
+            {FilterModalComponent && (
+              <FilterModalComponent
+                setShowFilterModal={setShowFilterModal}
+              />
+            )}
           </div>
         )}
 

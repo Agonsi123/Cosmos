@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import InvestmentPagination from "./InvestmentPagination";
 import InvestmentDetailsModal from './InvestmentDetailsModal';
+import SearchSection from "../userManagement/SearchSection";
+import { CiSearch } from "react-icons/ci";
+import mix from "../../../assets/mix.png";
+import { TbFileExport } from "react-icons/tb";
+import FilterModal from "../adminInvestments/FilterModal";
 import { data } from 'autoprefixer';
 
 
@@ -82,7 +87,8 @@ const userData = [
   ];
 
 
-const InvestmentBreakdown = ({statusFilter}) => {
+const InvestmentBreakdown = () => {
+  const [statusFilter, setStatusFilter] = useState(null);
 
   const [showInvestmentDetails, setShowInvestmentDetails] = useState(false);
 
@@ -91,61 +97,76 @@ const InvestmentBreakdown = ({statusFilter}) => {
     ? userData.filter(data => data.status === statusFilter)
     : userData;
 
+    const SfilterModal = ({ setShowFilterModal }) => (
+      <FilterModal
+        setShowFilterModal={setShowFilterModal}
+        setStatusFilter={setStatusFilter}
+      />
+    );
+
 
     return (
-    <>
-      <div className="py-6 overflow-x-auto relative">
-        <table width={"100%"}>
-          <thead className="shadow-sm">
-            <tr className="font-sans text-[#4F5144] text-xs font-light flex w-full">
-              <th className=" flex-1 text-left px-5 lg:block">Investor Name</th>
-              <th className=" flex-1 text-left px-5">Project Name</th>
-              <th className=" flex-1 text-left px-5">Amount Invested</th>
-              <th className=" flex-1 text-left px-5">Expected ROI</th>
-              <th className=" flex-1 text-left px-5">Investment date</th>
-              <th className=" flex-1 text-center px-5">Status</th>
-              <th className=" flex-1 text-right px-5"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {filteredUserData.map((data, index) => (
-              <tr
-                className="font-sanns text-xs border-b border-gray-110 flex items-center w-full"
-                key={index}
-              >
-                <td className="flex-1 p-4 text-left hidden lg:block">{data.investorName}</td>
-                <td className="p-4 text-left flex-1">{data.projectName}</td>
-                <td className="p-4 text-left flex-1">{data.amount}</td>
-                <td className="p-4 text-left flex-1">{data.roi}</td>
-                <td className="p-4 text-left flex-1">{data.date}</td>
-                <td className="p-4 text-center flex-1">
-                  <span className={`font-sanns px-2 py-1 rounded-lg text-xs ${data.color}`}>
-                    {data.status}
-                  </span>
-                </td>
-                <td
-                  className="pl-6 text-sm flex-1 text-right"
-                  onClick={() => setShowInvestmentDetails(true)}
-                >
-                  <div className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block">
-                    <BsThreeDotsVertical />
-                  </div>
-                </td>
+      <>
+        <SearchSection
+          tittle="All Security Alerts"
+          icon={<CiSearch className="text-[#00000080] mr-2" size={30} />}
+          icon2={<img src={mix} alt="mix" />}
+          icon3={<TbFileExport />}
+          text="Export"
+          FilterModalComponent={SfilterModal}
+        />
+        <div className="py-6 overflow-x-auto">
+          <table width={"100%"}>
+            <thead className="shadow-sm">
+              <tr className="font-sans text-[#4F5144] text-xs font-light flex w-full">
+                <th className=" flex-1 text-left px-5 lg:block">Investor Name</th>
+                <th className=" flex-1 text-left px-5">Project Name</th>
+                <th className=" flex-1 text-left px-5">Amount Invested</th>
+                <th className=" flex-1 text-left px-5">Expected ROI</th>
+                <th className=" flex-1 text-left px-5">Investment date</th>
+                <th className=" flex-1 text-center px-5">Status</th>
+                <th className=" flex-1 text-right px-5"></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        {/* Pagination */}
-        <InvestmentPagination />
-      </div>
+            </thead>
 
-      {/* Investment Details Modal */}
-      {showInvestmentDetails && (
-        <InvestmentDetailsModal setShowInvestmentDetails={setShowInvestmentDetails}/>
-      )}
-    </>
-  );
+            <tbody>
+              {filteredUserData.map((data, index) => (
+                <tr
+                  className="font-sanns text-xs border-b border-gray-110 flex items-center w-full"
+                  key={index}
+                >
+                  <td className="flex-1 p-4 text-left hidden lg:block">{data.investorName}</td>
+                  <td className="p-4 text-left flex-1">{data.projectName}</td>
+                  <td className="p-4 text-left flex-1">{data.amount}</td>
+                  <td className="p-4 text-left flex-1">{data.roi}</td>
+                  <td className="p-4 text-left flex-1">{data.date}</td>
+                  <td className="p-4 text-center flex-1">
+                    <span className={`font-sanns px-2 py-1 rounded-lg text-xs ${data.color}`}>
+                      {data.status}
+                    </span>
+                  </td>
+                  <td
+                    className="pl-6 text-sm flex-1 text-right"
+                    onClick={() => setShowInvestmentDetails(true)}
+                  >
+                    <div className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block">
+                      <BsThreeDotsVertical />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* Pagination */}
+          <InvestmentPagination />
+        </div>
+
+        {/* Investment Details Modal */}
+        {showInvestmentDetails && (
+          <InvestmentDetailsModal setShowInvestmentDetails={setShowInvestmentDetails} />
+        )}
+      </>
+    );
 }
 
 export default InvestmentBreakdown

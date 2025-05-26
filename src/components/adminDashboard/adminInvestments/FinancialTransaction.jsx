@@ -1,5 +1,9 @@
 import React from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
+import SearchSection from "../userManagement/SearchSection";
+import { CiSearch } from "react-icons/ci";
+import mix from "../../../assets/mix.png";
+import { TbFileExport } from "react-icons/tb";
 import InvestmentPagination from "./InvestmentPagination";
 
 const FinancialTransaction = () => {
@@ -80,49 +84,62 @@ const FinancialTransaction = () => {
   ];
 
   return (
-    <div className="py-6 overflow-x-auto relative">
-      <table width={"100%"}>
-        <thead className="shadow-sm">
-          <tr className="font-sans text-[#4F5144] text-xs font-light flex w-full">
-            <th className=" flex-1 text-left px-5 lg:block">Transaction ID</th>
-            <th className=" flex-1 text-left px-5">User Name</th>
-            <th className=" flex-1 text-left px-5">Transaction Type</th>
-            <th className=" flex-1 text-left px-5">Amount</th>
-            <th className=" flex-1 text-left px-5">Date</th>
-            <th className=" flex-1 text-center px-5">Status</th>
-            <th className=" flex-1 text-right px-5"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {userData.map((data, index) => (
-            <tr className="font-sanns text-xs border-b border-gray-110 flex items-center w-full" key={index}>
-              <td className="flex-1 p-4 text-left hidden lg:block">{data.transactionId}</td>
-              <td className="p-4 text-left flex-1">{data.userName}</td>
-              <td className="p-4 text-left flex-1">{data.type}</td>
-              <td className="p-4 text-left flex-1">{data.amount}</td>
-              <td className="p-4 text-left flex-1">{data.date}</td>
-              <td className="p-4 text-center flex-1">
-                <span className={`font-sanns px-2 py-1 rounded-lg text-xs ${data.color}`}>
-                  {data.status}
-                </span>
-              </td>
-              <td
-                className="pl-6 text-sm flex-1 text-right"
-                // onClick={() => setShowAuditIssueDetails(true)}
-              >
-                <div className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block">
-                  <BsThreeDotsVertical/>
-                </div>
-              </td>
+    <>
+      <SearchSection
+        tittle="All Security Alerts"
+        icon={<CiSearch className="text-[#00000080] mr-2" size={30} />}
+        icon2={<img src={mix} alt="mix" />}
+        icon3={<TbFileExport />}
+        text="Export"
+        // FilterModalComponent={SfilterModal}
+      />
+      <div className="py-6 overflow-x-auto relative">
+        <table width={"100%"}>
+          <thead className="shadow-sm">
+            <tr className="font-sans text-[#4F5144] text-xs font-light flex w-full">
+              <th className=" flex-1 text-left px-5 lg:block">Transaction ID</th>
+              <th className=" flex-1 text-left px-5">User Name</th>
+              <th className=" flex-1 text-left px-5">Transaction Type</th>
+              <th className=" flex-1 text-left px-5">Amount</th>
+              <th className=" flex-1 text-left px-5">Date</th>
+              <th className=" flex-1 text-center px-5">Status</th>
+              <th className=" flex-1 text-right px-5"></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* Pagination */}
-      <InvestmentPagination />
-    </div>
-  )
+          </thead>
+
+          <tbody>
+            {userData.map((data, index) => (
+              <tr
+                className="font-sanns text-xs border-b border-gray-110 flex items-center w-full"
+                key={index}
+              >
+                <td className="flex-1 p-4 text-left hidden lg:block">{data.transactionId}</td>
+                <td className="p-4 text-left flex-1">{data.userName}</td>
+                <td className="p-4 text-left flex-1">{data.type}</td>
+                <td className="p-4 text-left flex-1">{data.amount}</td>
+                <td className="p-4 text-left flex-1">{data.date}</td>
+                <td className="p-4 text-center flex-1">
+                  <span className={`font-sanns px-2 py-1 rounded-lg text-xs ${data.color}`}>
+                    {data.status}
+                  </span>
+                </td>
+                <td
+                  className="pl-6 text-sm flex-1 text-right"
+                  // onClick={() => setShowAuditIssueDetails(true)}
+                >
+                  <div className="three-dots-button p-2 hover:bg-gray-100 rounded-full inline-block">
+                    <BsThreeDotsVertical />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* Pagination */}
+        <InvestmentPagination />
+      </div>
+    </>
+  );
 }
 
 export default FinancialTransaction

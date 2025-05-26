@@ -14,6 +14,8 @@ const AdminSideBarMenu = () => {
     <div className="py-6 px-4">
       <h2 className="font-manrope text-[#00000040] text-base font-semibold">Menu</h2>
       <div className="py-6 space-y-10 px-2 font-sanns">
+
+        {/* Admin Dashboard tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={overview} alt="overview" />
@@ -35,6 +37,8 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+
+        {/* User Management tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={userManage} alt="user" />
@@ -56,6 +60,8 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+
+        {/* Projects tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={projectsIcon} alt="projects" />
@@ -77,6 +83,7 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+
         {/* Investmentb tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
@@ -122,6 +129,8 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+
+        {/* Security tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={securityIcon} alt="security" />
@@ -143,6 +152,8 @@ const AdminSideBarMenu = () => {
             </NavLink>
           </div>
         </div>
+
+        {/* Audit Log tab */}
         <div className="flex items-center relative  gap-2">
           <div className={`absolute left-[5px] h-8 $  `}></div>
           <img src={auditIcon} alt="audit" />
