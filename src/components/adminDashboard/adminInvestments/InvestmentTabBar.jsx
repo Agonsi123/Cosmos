@@ -1,14 +1,10 @@
 import React, {useState} from 'react';
-import SearchSection from "../userManagement/SearchSection";
-import { CiSearch } from "react-icons/ci";
-import mix from "../../../assets/mix.png";
-import { TbFileExport } from "react-icons/tb";
 import InvestmentBreakdown from './InvestmentBreakdown';
 import FinancialTransaction from './FinancialTransaction';
 
 const InvestmentTabBar = () => {
     const [activeTab, setActiveTab] = useState("breakdown");
-    const [statusFilter, setStatusFilter] = useState(null);
+    // const [statusFilter, setStatusFilter] = useState(null);
 
   return (
     <div className="px-4 mx-2 mt-4">
@@ -35,17 +31,12 @@ const InvestmentTabBar = () => {
         </button>
         
       </div>
-      <SearchSection
-        tittle="All Investments"
-        icon={<CiSearch className="text-[#00000080] mr-2" size={30} />}
-        icon2={<img src={mix} alt="mix" />}
-        icon3={<TbFileExport />}
-        text="Export"
-        setStatusFilter={setStatusFilter}
-      />
+      
       <div>
         {activeTab === "breakdown" ? (
-          <InvestmentBreakdown statusFilter={statusFilter}/>
+          <InvestmentBreakdown
+          // statusFilter={statusFilter}
+          />
         ) : (
           <FinancialTransaction />
         )}

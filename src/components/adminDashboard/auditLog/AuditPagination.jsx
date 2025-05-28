@@ -24,10 +24,10 @@ const AuditPagination = () => {
           <button className=" text-[#667085] py-1 px-3 rounded-md text-[14px]">10</button>
         </div>
         <div className="flex gap-2 px-3 rounded-md py-1 items-center border-[1px] border-[#D0D5DD]">
+          <button className="text-[14px] font-[500] text-[#344054]">Next</button>
           <div>
             <GrLinkNext className="size-3.5" />
           </div>
-          <button className="text-[14px] font-[500] text-[#344054]">Next</button>
         </div>
       </div>
     </div>
