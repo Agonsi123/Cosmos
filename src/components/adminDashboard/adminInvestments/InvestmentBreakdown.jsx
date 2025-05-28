@@ -108,7 +108,7 @@ const InvestmentBreakdown = () => {
     return (
       <>
         <SearchSection
-          tittle="All Security Alerts"
+          tittle="All Investments"
           icon={<CiSearch className="text-[#00000080] mr-2" size={30} />}
           icon2={<img src={mix} alt="mix" />}
           icon3={<TbFileExport />}

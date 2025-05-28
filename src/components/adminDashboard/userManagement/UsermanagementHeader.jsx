@@ -64,9 +64,11 @@ const UsermanagementHeader = ({title, text, img}) => {
                     <img src={greenDoubleArrow} alt="" />
                   </div>
                   <div className="font-sanns">
-                    <p className="font-semibold text-sm text-[#424242]">Large Unusual Transaction</p>
+                    <p className="font-semibold text-sm text-[#424242]">
+                      Large Unusual Transaction
+                    </p>
                     <p className="font-normal text-xs text-[#a8a8a8]">
-                      N5,000,000 - First-time transaction from...
+                      ₦5,000,000 - First-time transaction from...
                     </p>
                   </div>
                 </div>
@@ -76,7 +78,9 @@ const UsermanagementHeader = ({title, text, img}) => {
                     <img src={kycOff} alt="" />
                   </div>
                   <div className="font-sanns">
-                    <p className="font-semibold text-sm text-[#424242]">Identity Verification Pending</p>
+                    <p className="font-semibold text-sm text-[#424242]">
+                      Identity Verification Pending
+                    </p>
                     <p className="font-normal text-xs text-[#a8a8a8]">
                       Lisa Effiong - NIN unverified
                     </p>
@@ -89,9 +93,7 @@ const UsermanagementHeader = ({title, text, img}) => {
                   </div>
                   <div className="font-sanns">
                     <p className="font-semibold text-sm text-[#424242]">High-Risk Login Attempt</p>
-                    <p className="font-normal text-xs text-[#a8a8a8]">
-                      Unverified login details
-                    </p>
+                    <p className="font-normal text-xs text-[#a8a8a8]">Unverified login details</p>
                   </div>
                 </div>
 
@@ -100,7 +102,9 @@ const UsermanagementHeader = ({title, text, img}) => {
                     <img src={greenFailed} alt="" />
                   </div>
                   <div className="font-sanns">
-                    <p className="font-semibold text-sm text-[#424242]">Mu;tiple Failed Transactions</p>
+                    <p className="font-semibold text-sm text-[#424242]">
+                      Mu;tiple Failed Transactions
+                    </p>
                     <p className="font-normal text-xs text-[#a8a8a8]">
                       John Doe is having multipl...
                     </p>
@@ -108,7 +112,7 @@ const UsermanagementHeader = ({title, text, img}) => {
                 </div>
               </div>
               <div className="w-2 bg-[#e7e9e2]">
-                <div className='bg-[#ebfacd] w-full h-[76px]'></div>
+                <div className="bg-[#ebfacd] w-full h-[76px]"></div>
               </div>
             </div>
           </div>

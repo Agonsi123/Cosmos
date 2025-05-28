@@ -46,7 +46,6 @@ const SecurityTabBar = () => {
       <div>
         {activeTab === "alert" ? (
             <SecurityAlert 
-        //   statusFilter={statusFilter} 
           />
         ) : activeTab === "kyc" ? (
             <ComplianceKyc />

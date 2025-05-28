@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import SecurityFilterModal from './securityModals/SecurityFilterModal';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import InvestmentPagination from "../adminInvestments/InvestmentPagination";
-import SecurityFilterModal from './securityModals/SecurityFilterModal';
 import SearchSection from "../userManagement/SearchSection";
 import { CiSearch } from "react-icons/ci";
 import mix from "../../../assets/mix.png";
 import { TbFileExport } from "react-icons/tb";
 import SecurityAlertMActionModal from './securityModals/SecurityAlertMActionModal';
+import SecurityAlertDetails from './securityModals/SecurityAlertDetails';
 
 
 const userData = [
@@ -125,7 +126,15 @@ const SecurityAlert = () => {
         <SecurityFilterModal
             setShowFilterModal={setShowFilterModal}
             setStatusFilter={setStatusFilter}
+            btn1="Resolved"
+            btn2="Pending"
         />
+    );
+
+    const aLertModal = ({setActiveModal}) => (
+      <SecurityAlertDetails
+      setActiveModal={setActiveModal}
+      />
     );
 
 
@@ -177,7 +186,11 @@ const SecurityAlert = () => {
                 {/* Security Alert moreAction modal */}
                 {openRowIndex === index && (
                     <div ref={(el) => setMenuRef(el, index)} className="absolute right-14 mt-2 ">
-                        <SecurityAlertMActionModal />
+                        <SecurityAlertMActionModal 
+                          btn1="Resolved"
+                          btn2="Pending"
+                          AlertDetailsComponent={aLertModal}
+                        />
                     </div>
                 )}
               </tr>
