@@ -36,19 +36,19 @@ const UsermanagementHeader = ({title, text, img}) => {
         {/* Notification modal */}
         {showNotification === true ? (
           <div className=" shadow-xl absolute right-0 top-14 z-50">
-            <div className="flex justify-between border-b border-[rgba(0,0,0,0.25)] py-4 px-6 rounded-t-xl bg-white w-[379px]">
+            <div className="flex justify-between border-b border-[rgba(0,0,0,0.25)] py-4 px-6 rounded-t-xl bg-white w-[368px]">
               <h3 className="font-sans text-2xl font-medium text-[#6b911b]">Notifications</h3>
               <div className="cursor-pointer mt-2" onClick={() => setShowNotification(false)}>
                 <CiCircleRemove className="size-6 " />
               </div>
             </div>
-            <div className="flex gap-7 pt-4 pb-8 px-6 rounded-b-xl bg-white w-[379px]">
+            <div className="flex gap-6 pt-4 pb-8 px-6 rounded-b-xl bg-white w-[368px]">
               <div className="flex flex-col gap-5 ">
                 <h5 className="font-[Mulish] font-extrabold text-sm text-[#6b911b]">
                   You have 5 notifications
                 </h5>
                 <div className="flex gap-3">
-                  <div className="bg-[#e9f8ca] p-3 rounded-full">
+                  <div className="bg-[#e9f8ca] pt-2 px-2 rounded-full">
                     <img src={kycGood} alt="" />
                   </div>
                   <div className="font-sanns">
@@ -60,7 +60,7 @@ const UsermanagementHeader = ({title, text, img}) => {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="bg-[#e9f8ca] p-3 rounded-full">
+                  <div className="bg-[#e9f8ca] pt-2 px-2 rounded-full">
                     <img src={greenDoubleArrow} alt="" />
                   </div>
                   <div className="font-sanns">
@@ -74,7 +74,7 @@ const UsermanagementHeader = ({title, text, img}) => {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="bg-[#e9f8ca] p-3 rounded-full">
+                  <div className="bg-[#e9f8ca] pt-2 px-2 rounded-full">
                     <img src={kycOff} alt="" />
                   </div>
                   <div className="font-sanns">
@@ -88,7 +88,7 @@ const UsermanagementHeader = ({title, text, img}) => {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="bg-[#e9f8ca] p-3 rounded-full">
+                  <div className="bg-[#e9f8ca] pt-2 px-2 rounded-full">
                     <img src={horiDownload} alt="" />
                   </div>
                   <div className="font-sanns">
@@ -98,12 +98,12 @@ const UsermanagementHeader = ({title, text, img}) => {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="bg-[#e9f8ca] p-3 rounded-full">
+                  <div className="bg-[#e9f8ca] pt-2 px-2 rounded-full">
                     <img src={greenFailed} alt="" />
                   </div>
                   <div className="font-sanns">
                     <p className="font-semibold text-sm text-[#424242]">
-                      Mu;tiple Failed Transactions
+                      Multiple Failed Transactions
                     </p>
                     <p className="font-normal text-xs text-[#a8a8a8]">
                       John Doe is having multipl...
