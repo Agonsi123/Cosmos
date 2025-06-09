@@ -29,7 +29,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>DashBoard</span>
                 </>
@@ -52,7 +52,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>User Management</span>
                 </>
@@ -75,7 +75,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Projects</span>
                 </>
@@ -98,7 +98,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Investments</span>
                 </>
@@ -121,7 +121,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Reports</span>
                 </>
@@ -144,7 +144,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Security</span>
                 </>
@@ -167,7 +167,7 @@ const AdminSideBarMenu = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] -top-2 h-12 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Audit Log</span>
                 </>

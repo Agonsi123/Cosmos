@@ -27,6 +27,7 @@ import AuditLog from "./pages/AuditLog";
 import AdminInvestments from "./pages/AdminInvestments";
 import Security from "./pages/Security";
 import AdminSettings from "./pages/AdminSettings";
+import Projects from "./pages/Projects";
 import AdminDashBoardMain from "./components/adminDashboard/AdminDashboards/AdminDashBoardMain";
 
 
@@ -83,6 +84,7 @@ function App() {
               <Route index element={<AdminDashBoard />} />
               <Route path="adminDashboard" element={<AdminDashBoard />} />
               <Route path="userManagement" element={<UserManagement />} />
+              <Route path="projects" element={<Projects />} />
               <Route path="adminInvestments" element={<AdminInvestments />} />
               <Route path="security" element={<Security />} />
               <Route path="auditLog" element={<AuditLog />} />

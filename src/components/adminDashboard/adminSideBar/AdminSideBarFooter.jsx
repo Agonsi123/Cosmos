@@ -14,7 +14,7 @@ const AdminSideBarFooter = () => {
               {({ isActive }) => (
                 <>
                   {isActive && (
-                    <div className="absolute left-[-6px] top-0 h-8 w-1 bg-[#6B911B]"></div>
+                    <div className="absolute left-[-6px] -top-3 h-12 w-1 bg-[#6B911B]"></div>
                   )}
                   <span>Settings</span>
                 </>
